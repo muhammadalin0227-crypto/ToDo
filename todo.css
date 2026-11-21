@@ -1,0 +1,344 @@
+
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#home{
+    display: block;
+   
+    
+}
+.addmanu{
+    background-color: rgb(224, 200, 200);
+    width: 98.vw;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 30px;
+    gap: 20px;
+     box-shadow: 0 2px 8px #0002;
+}
+
+#input,
+#addbtn{
+    height: 2rem;
+    border: none;
+    border-radius: 20px;
+}
+#input{
+    width: 20rem;
+}
+
+#addbtn{
+    width: 3%;
+    background-color: rgb(159, 233, 49);
+    transition: 0.1s;
+}
+
+#addbtn:hover{
+    transform: scale(0.95);
+    background-color:rgb(141, 207, 42) ;
+}
+
+#message{
+    display: none;
+    background-color: gainsboro ;
+    position: fixed;
+    min-height: 1rem ;
+    height: auto;
+    width: 15rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px #0002;
+    padding: 12px 25px;
+    word-break:break-all;
+    top: 20px;
+    margin-left: 40%;
+    left: auto;
+    transform: translateY(-50%);
+    z-index: 1000000;
+    
+}
+
+#home p{
+    font-weight: bold;
+
+}
+body{
+    margin: 0;
+
+}
+
+
+.cardcontener {
+     margin-top: 20px;
+    width: 100%;
+    
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    /* flex-direction: column; */
+}
+
+.newcard {
+    
+    width: 70%;
+    height: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: gainsboro;
+    box-shadow: 0 2px 8px #0002;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+.newcard p {
+    font-size: 2rem;
+    text-transform: capitalize;
+
+}
+
+.newcard i {
+    cursor: pointer;
+    /* position: absolute; */
+    right: 4px;
+    top: 50%;
+    height: 100%;
+    background-color: rgb(247, 77, 77);
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.newcard i:hover {
+    transform: scale(0.95);
+    background-color:  rgb(214, 64, 64);
+}
+
+
+.updateBtn {
+    border: none;
+    width: 10%;
+    height: 3rem;
+    border-radius: 10px;
+
+}
+
+button span {
+    overflow-wrap: break-word;
+    font-size: clamp(12px, 3vw, 18px);
+    padding: 10px 15px;
+    max-width: 100%;
+    white-space: normal;
+    font-weight: 200;
+    box-sizing: border-box;
+
+}
+
+
+
+
+/* --------------------------------section code---------------------------- */
+
+
+#updateInput{
+    position: fixed;
+
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.623);
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+
+#closeupdateInput{
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    top: 30px;
+    right: 30px;
+    background-color: red;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: 0.3s;
+}
+#closeupdateInput:hover {
+    transform: scale(0.95);
+    background-color:  rgb(214, 64, 64);
+}
+#updateInput input{
+    height: 4rem;
+     width: 20rem;
+     background-color: transparent;
+     border: none;
+     border-bottom: 2px solid wheat;
+     outline: none;
+     font-size: 2rem;
+     color: wheat;
+}
+
+#updateInput input::placeholder{
+    color: wheat;
+    font-size: 2rem;
+}
+
+
+
+
+#inputbtn{
+    position: fixed;
+    width: 11%;
+    height: 3rem;
+    border: none;
+    right: 200px;
+    bottom: 48%;
+    border-radius: 10px;
+    background-color: rgb(159, 233, 49);
+    transition: 0.1s;
+}
+#updateInput button{
+    font-size: 1.8rem;
+}
+#inputbtn:hover{
+    transform: scale(0.95);
+    background-color:rgb(141, 207, 42) ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:1023px) {
+    button span {
+
+        font-size: 15px;
+
+
+    }
+}
+
+@media (max-width:929px) {
+    .newcard {
+        height: 4px;
+    }
+
+    .newcard p {
+        font-size: 1.6rem;
+    }
+
+    .updateBtn {
+        width: 15%;
+        border-radius: 20px;
+        height: 30px;
+    }
+    #message{
+   margin-left: 35%;
+    
+}
+
+
+}
+
+
+@media (max-width:712px) {
+    .newcard {
+        /* position: relative; */
+        width: 40%;
+        border-radius: 30px;
+    }
+
+    .newcard p {
+        font-size: 1.4rem;
+
+
+    }
+
+    .updateBtn {
+        width: 15%;
+        border-radius: 20px;
+    }
+
+    button span {
+
+        font-size: 0.9rem;
+
+
+    }
+      #message{
+   margin-left: 30%;
+    
+}
+}
+
+@media (max-width:620px) {
+
+
+
+    .newcard {
+        /* position: relative; */
+        width: 40%;
+        height: 2px;
+        border-radius: 30px;
+    }
+
+    .newcard p {
+        font-size: 1.2rem;
+
+
+    }
+
+
+    .updateBtn {
+        width: 15%;
+        height: 30px;
+        border-radius: 20px;
+    }
+
+    button span {
+
+        font-size: 0.6rem;
+
+
+    }
+      #message{
+   margin-left: 10%;
+    
+}
+
+}
