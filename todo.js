@@ -95,6 +95,90 @@ addBtn.onclick = () => {
 }
 
 
+const input = document.getElementById('input');
+const addBtn = document.getElementById('addbtn');
+const showtask = document.getElementById('showtask');
+const cardcontener = document.querySelector('.cardcontener');
+
+// LocalStorage سے پرانے Tasks حاصل کریں
+let tasks = JSON.parse(localStorage.getItem('todoTasks')) || [];
+
+// Tasks کو محفوظ کرنے کا Function
+function saveTasks() {
+    localStorage.setItem('todoTasks', JSON.stringify(tasks));
+}
+
+// Card بنانے کا Function
+function createCard(taskData) {
+
+    let newcard = document.createElement('card');
+    newcard.classList.add('newcard');
+
+    // ہر Card کی اپنی ID
+    newcard.dataset.id = taskData.id;
+
+    let task = document.createElement('p');
+    task.textContent = taskData.text;
+
+    let close = document.createElement('i');
+    close.classList.add('fa-solid', 'fa-xmark');
+
+    // Delete Button
+    close.onclick = () => {
+
+        tasks = tasks.filter(item => item.id !== taskData.id);
+
+        saveTasks();
+
+        newcard.remove();
+
+    };
+
+    cardcontener.appendChild(newcard);
+    newcard.appendChild(task);
+    newcard.appendChild(close);
+
+    cardcontener.style.display = 'flex';
+}
+
+// Add New Task
+addBtn.onclick = () => {
+
+    let inputvalue = input.value.trim();
+
+    if (inputvalue === "") {
+        return;
+    }
+
+    let taskData = {
+        id: Date.now(),
+        text: inputvalue
+    };
+
+    tasks.push(taskData);
+
+    saveTasks();
+
+    createCard(taskData);
+
+    input.value = "";
+
+};
+
+// Page Load ہونے پر تمام Cards واپس لائیں
+function loadTasks() {
+
+    cardcontener.innerHTML = "";
+
+    tasks.forEach(taskData => {
+        createCard(taskData);
+    });
+
+}
+
+// ویب سائٹ کھلتے ہی Tasks دکھائیں
+loadTasks();
+
 
 
 
