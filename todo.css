@@ -1,154 +1,152 @@
+/* ===== BASE ===== */
+* {
+    box-sizing: border-box;
+}
 
-
-html{
+html {
     font-family: Arial, Helvetica, sans-serif;
 }
-#home{
-    display: block;
-   
-    
+
+body {
+    margin: 0;
 }
-.addmanu{
+
+#home {
+    display: block;
+}
+
+/* ===== TOP BAR ===== */
+.addmanu {
     background-color: rgb(224, 200, 200);
-    width: 98.vw;
-    height: 50px;
+    width: 100%;
+    min-height: 60px;
     display: flex;
     align-items: center;
-    justify-content: left;
-    padding-left: 30px;
-    gap: 20px;
-     box-shadow: 0 2px 8px #0002;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    gap: 12px;
+    box-shadow: 0 2px 8px #0002;
 }
 
 #input,
-#addbtn{
-    height: 2rem;
+#addbtn {
+    height: 40px;
     border: none;
     border-radius: 20px;
-}
-#input{
-    width: 20rem;
+    font-size: 16px;
 }
 
-#addbtn{
-    width: 3%;
+#input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0 15px;
+    flex: 1 1 200px;
+}
+
+#addbtn {
+    width: 80px;
+    min-width: 70px;
     background-color: rgb(159, 233, 49);
-    transition: 0.1s;
+    transition: 0.15s;
+    cursor: pointer;
 }
 
-#addbtn:hover{
+#addbtn:hover {
     transform: scale(0.95);
-    background-color:rgb(141, 207, 42) ;
+    background-color: rgb(141, 207, 42);
 }
 
-#message{
+/* ===== TOAST MESSAGE ===== */
+#message {
     display: none;
-    background-color: gainsboro ;
+    background-color: gainsboro;
     position: fixed;
-    min-height: 1rem ;
-    height: auto;
-    width: 15rem;
+    min-height: 40px;
+    width: 90%;
+    max-width: 320px;
     border-radius: 20px;
     box-shadow: 0 2px 8px #0002;
-    padding: 12px 25px;
-    word-break:break-all;
+    padding: 12px 20px;
+    word-break: break-word;
     top: 20px;
-    margin-left: 40%;
-    left: auto;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1000000;
-    
+    text-align: center;
 }
 
-#home p{
-    font-weight: bold;
-
-}
-body{
-    margin: 0;
-
-}
-
-
+/* ===== CARDS ===== */
 .cardcontener {
-     margin-top: 20px;
+    margin-top: 20px;
     width: 100%;
-    
-
+    padding: 0 15px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
     justify-content: center;
-    /* flex-direction: column; */
 }
 
 .newcard {
-    
-    width: 70%;
-    height: 20px;
-    padding: 15px;
-    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    min-height: 60px;
+    padding: 12px 15px;
+    border-radius: 12px;
     background-color: gainsboro;
     box-shadow: 0 2px 8px #0002;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-
 .newcard p {
-    font-size: 2rem;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
     text-transform: capitalize;
-
+    margin: 0;
+    flex: 1 1 auto;
+    word-break: break-word;
 }
 
 .newcard i {
     cursor: pointer;
-    /* position: absolute; */
-    right: 4px;
-    top: 50%;
-    height: 100%;
     background-color: rgb(247, 77, 77);
     border-radius: 50px;
+    padding: 8px 12px;
+    color: white;
     transition: 0.3s;
+    flex-shrink: 0;
 }
 
 .newcard i:hover {
     transform: scale(0.95);
-    background-color:  rgb(214, 64, 64);
+    background-color: rgb(214, 64, 64);
 }
-
 
 .updateBtn {
     border: none;
-    width: 10%;
-    height: 3rem;
+    min-width: 70px;
+    height: 40px;
     border-radius: 10px;
-
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
 button span {
     overflow-wrap: break-word;
-    font-size: clamp(12px, 3vw, 18px);
-    padding: 10px 15px;
+    font-size: clamp(12px, 2vw, 16px);
+    padding: 6px 12px;
     max-width: 100%;
     white-space: normal;
-    font-weight: 200;
-    box-sizing: border-box;
-
+    font-weight: 400;
 }
 
-
-
-
-/* --------------------------------section code---------------------------- */
-
-
-#updateInput{
+/* ===== UPDATE MODAL ===== */
+#updateInput {
     position: fixed;
-
     inset: 0;
     z-index: 9999;
     display: none;
@@ -156,189 +154,165 @@ button span {
     align-items: center;
     background-color: rgba(0, 0, 0, 0.623);
     padding: 15px;
-    box-sizing: border-box;
 }
 
+#updateInput.active {
+    display: flex;
+}
 
-#closeupdateInput{
+#closeupdateInput {
     position: fixed;
     width: 40px;
     height: 40px;
-    border-radius: 50px;
-    top: 30px;
-    right: 30px;
+    border-radius: 50%;
+    top: 20px;
+    right: 20px;
     background-color: red;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    cursor: pointer;
+    color: white;
 }
+
 #closeupdateInput:hover {
     transform: scale(0.95);
-    background-color:  rgb(214, 64, 64);
-}
-#updateInput input{
-    height: 4rem;
-     width: 20rem;
-     background-color: transparent;
-     border: none;
-     border-bottom: 2px solid wheat;
-     outline: none;
-     font-size: 2rem;
-     color: wheat;
+    background-color: rgb(214, 64, 64);
 }
 
-#updateInput input::placeholder{
-    color: wheat;
-    font-size: 2rem;
-}
-
-
-
-
-#inputbtn{
-    position: fixed;
-    width: 11%;
-    height: 3rem;
+#updateInput input {
+    height: 50px;
+    width: 90%;
+    max-width: 400px;
+    background-color: transparent;
     border: none;
-    right: 200px;
-    bottom: 48%;
+    border-bottom: 2px solid wheat;
+    outline: none;
+    font-size: clamp(1rem, 3vw, 1.8rem);
+    color: wheat;
+}
+
+#updateInput input::placeholder {
+    color: wheat;
+    font-size: clamp(1rem, 3vw, 1.8rem);
+}
+
+#inputbtn {
+    position: static;
+    width: 120px;
+    height: 45px;
+    border: none;
     border-radius: 10px;
     background-color: rgb(159, 233, 49);
-    transition: 0.1s;
+    transition: 0.15s;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
 }
-#updateInput button{
-    font-size: 1.8rem;
-}
-#inputbtn:hover{
+
+#inputbtn:hover {
     transform: scale(0.95);
-    background-color:rgb(141, 207, 42) ;
+    background-color: rgb(141, 207, 42);
 }
 
+#updateInput button {
+    font-size: clamp(14px, 2vw, 18px);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width:1023px) {
-    button span {
-
-        font-size: 15px;
-
-
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .newcard {
+        max-width: 90%;
     }
 }
 
-@media (max-width:929px) {
+@media (max-width: 768px) {
+    .addmanu {
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    #input {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    #addbtn {
+        width: 100%;
+        max-width: 200px;
+    }
+
     .newcard {
-        height: 4px;
+        max-width: 100%;
+        padding: 10px 12px;
     }
 
     .newcard p {
-        font-size: 1.6rem;
+        font-size: 1rem;
+        flex: 1 1 100%;
+    }
+
+    .newcard i {
+        padding: 6px 10px;
     }
 
     .updateBtn {
-        width: 15%;
-        border-radius: 20px;
-        height: 30px;
-    }
-    #message{
-   margin-left: 35%;
-    
-}
-
-
-}
-
-
-@media (max-width:712px) {
-    .newcard {
-        /* position: relative; */
-        width: 40%;
-        border-radius: 30px;
-    }
-
-    .newcard p {
-        font-size: 1.4rem;
-
-
-    }
-
-    .updateBtn {
-        width: 15%;
-        border-radius: 20px;
+        min-width: 60px;
+        height: 36px;
     }
 
     button span {
-
-        font-size: 0.9rem;
-
-
-    }
-      #message{
-   margin-left: 30%;
-    
-}
-}
-
-@media (max-width:620px) {
-
-
-
-    .newcard {
-        /* position: relative; */
-        width: 40%;
-        height: 2px;
-        border-radius: 30px;
+        font-size: 13px;
+        padding: 4px 8px;
     }
 
+    #closeupdateInput {
+        top: 15px;
+        right: 15px;
+        width: 36px;
+        height: 36px;
+    }
+
+    #inputbtn {
+        width: 100px;
+        height: 40px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
     .newcard p {
-        font-size: 1.2rem;
-
-
+        font-size: 0.95rem;
     }
 
+    .newcard i {
+        padding: 5px 8px;
+        font-size: 14px;
+    }
 
     .updateBtn {
-        width: 15%;
-        height: 30px;
-        border-radius: 20px;
+        min-width: 55px;
+        height: 34px;
     }
 
     button span {
-
-        font-size: 0.6rem;
-
-
+        font-size: 12px;
     }
-      #message{
-   margin-left: 10%;
-    
-}
 
+    #updateInput input,
+    #updateInput input::placeholder {
+        font-size: 1rem;
+    }
+
+    #inputbtn {
+        width: 90px;
+        height: 38px;
+    }
+
+    #message {
+        width: 92%;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
 }
